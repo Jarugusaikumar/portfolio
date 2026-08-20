@@ -287,12 +287,14 @@
   <h2 class="section__title">Let's build something</h2>
   <p class="contact__intro">I’m open to internships, collaborations, and data/AI projects. Reach out if you want to work together.</p>
 
-  <form class="contact-form" id="contactForm">
+  <form class="contact-form" id="contactForm" action="https://formspree.io/f/yourFormID" method="POST">
     <div class="contact-form__row">
       <input type="text" name="name" placeholder="Your name" required />
       <input type="email" name="email" placeholder="Your email" required />
     </div>
     <textarea name="message" rows="5" placeholder="Your message" required></textarea>
+    <input type="hidden" name="_subject" value="New portfolio contact message" />
+    <input type="hidden" name="_captcha" value="false" />
     <button type="submit" class="btn btn--primary">Send Message</button>
     <p class="contact-form__note mono" id="formNote"></p>
   </form>

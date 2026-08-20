@@ -20,14 +20,20 @@ window.addEventListener('scroll', () => {
 // ===== Footer year =====
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// ===== Contact form (front-end only demo) =====
-// NOTE: This does not actually send an email yet.
-// See the deployment guide for how to connect Formspree, EmailJS, or a backend.
+// ===== Contact form =====
 const form = document.getElementById('contactForm');
 const note = document.getElementById('formNote');
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  note.textContent = '> message queued — connect a form service to actually send this (see README)';
-  form.reset();
-});
+if (form && note) {
+  form.addEventListener('submit', (e) => {
+    const endpoint = form.action || '';
+
+    if (endpoint.includes('yourFormID')) {
+      e.preventDefault();
+      note.textContent = '> connect your Formspree form ID in index.html to receive messages in saijarugu2003@gmail.com';
+      return;
+    }
+
+    note.textContent = '> sending message...';
+  });
+}
