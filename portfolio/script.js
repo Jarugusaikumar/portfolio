@@ -28,9 +28,9 @@ if (form && note) {
   form.addEventListener('submit', (e) => {
     const endpoint = form.action || '';
 
-    if (endpoint.includes('yourFormID')) {
+    if (endpoint.includes('yourFormID') || endpoint === '') {
       e.preventDefault();
-      note.textContent = '> connect your Formspree form ID in index.html to receive messages in saijarugu2003@gmail.com';
+      note.textContent = '> form is not connected yet. Please add a valid Formspree endpoint.';
       return;
     }
 
